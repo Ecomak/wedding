@@ -24,7 +24,7 @@ const App: React.FC = () => {
       <Hero title={t.title} date={t.date} />
 
       {/* Main Content */}
-      <main className="w-full max-w-2xl px-4 -mt-12 mb-20 relative z-10">
+      <main className="w-full max-w-5xl px-4 -mt-12 mb-20 relative z-10">
         <div className="flex flex-col gap-20">
           
           {/* Main Photo Wrapper */}
