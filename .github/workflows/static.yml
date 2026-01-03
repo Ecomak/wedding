@@ -52,8 +52,8 @@ jobs:
           --relative \
           --short \
           -t "Emel & Onur | 24.05.2025" \
-          -i "Hoş Geldiniz! Lütfen davetiyenizdeki şifreyi giriniz. / Welcome! Please enter the password from your invitation."
-
+          -i "Hoş Geldiniz! Lütfen davetiyenizdeki şifreyi giriniz. / Welcome! Please enter the password."
+          
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
