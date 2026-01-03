@@ -1,8 +1,10 @@
+# Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
   push:
     branches: ["dev"]
+
   workflow_dispatch:
 
 permissions:
@@ -20,7 +22,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,22 +29,25 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Build frontend (NO secrets)
+      - name: Build
         run: npm run build
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      # OPTIONAL — lightweight access gate
+      # 👉 ADDED: install staticrypt
       - name: Install Staticrypt
         run: npm install -g staticrypt
 
-      - name: Encrypt index.html
+      # 👉 ADDED: encrypt index.html
+      - name: Encrypt site with Staticrypt
         run: |
           staticrypt dist/index.html \
-            "${{ secrets.SITE_PASSWORD }}" \
+            "${{ secrets.STATICRYPT_PASSWORD }}" \
             -o dist/index.html
 
       - name: Setup Pages
@@ -52,7 +56,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist"
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
