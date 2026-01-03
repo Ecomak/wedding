@@ -1,0 +1,53 @@
+export type Language = 'TR' | 'EN';
+
+export interface Translations {
+  title: string;
+  date: string;
+  welcomeTitle: string;
+  welcomeText: string;
+  rsvpTitle: string;
+  locationTitle: string;
+  venueZurichTitle: string;
+  venueZurichAddress: string;
+  venueWinterthurTitle: string;
+  venueWinterthurAddress: string;
+  viewOnMaps: string;
+  attractionsTitle: string;
+  zurichTitle: string;
+  zurichAttractions: string[];
+  winterthurTitle: string;
+  winterthurAttractions: string[];
+  eatTitle: string;
+  firstName: string;
+  lastName: string;
+  participationStatus: string;
+  accept: string;
+  decline: string;
+  mealPreference: string;
+  standardMenu: string;
+  vegetarian: string;
+  vegan: string;
+  plusOneQuestion: string;
+  yes: string;
+  no: string;
+  plusOneName: string;
+  plusOneMeal: string;
+  notes: string;
+  notesPlaceholder: string;
+  submitButton: string;
+  footerText: string;
+  namePlaceholder: string;
+  lastNamePlaceholder: string;
+  guestNamePlaceholder: string;
+  menuLocation: string;
+  menuAttractions: string;
+  menuRsvp: string;
+  // Schedule and Transport
+  scheduleTitle: string;
+  arrivalTitle: string;
+  arrivalText: string;
+  ceremonyTitle: string;
+  celebrationTitle: string;
+  transportTitle: string;
+  transportText: string;
+}
