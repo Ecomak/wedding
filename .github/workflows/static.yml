@@ -2,7 +2,7 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on pushes targeting the dev branch
   push:
     branches: ["dev"]
 
@@ -15,14 +15,12 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -36,6 +34,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          # If you have a package-lock.json, this speeds up the build:
+          cache: 'npm' 
 
       - name: Install dependencies
         run: npm install
@@ -45,13 +45,23 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
+      - name: Encrypt with StatiCrypt
+        run: |
+          npx staticrypt dist/index.html "${{ secrets.SITE_PASSWORD }}" \
+          --directory dist \
+          --relative \
+          --short \
+          -t "Emel & Onur | 24.05.2025" \
+          -i "Hoş Geldiniz! Lütfen davetiyenizdeki şifreyi giriniz. / Welcome! Please enter the password from your invitation."
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Vite's default output folder
+          # We upload the 'dist' folder which now contains the encrypted index.html
+          path: './dist' 
 
       - name: Deploy to GitHub Pages
         id: deployment
