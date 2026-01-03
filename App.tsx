@@ -11,7 +11,7 @@ const App: React.FC = () => {
   const t = TRANSLATIONS[lang];
 
   // Using a relative path starting with ./ is crucial for GitHub Pages subdirectories like /wedding/
-  const mainImageUrl = "./IMG-20251214-WA0060~2.jpg";
+  const mainImageUrl = `${import.meta.env.BASE_URL}IMG-20251214-WA0060~2.jpg`;
 
   return (
     <div className="min-h-screen flex flex-col items-center">
