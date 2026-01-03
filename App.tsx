@@ -10,6 +10,9 @@ const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('TR');
   const t = TRANSLATIONS[lang];
 
+  // Using a relative path starting with ./ is crucial for GitHub Pages subdirectories like /wedding/
+  const mainImageUrl = "./IMG-20251214-WA0060~2.jpg";
+
   return (
     <div className="min-h-screen flex flex-col items-center">
       {/* Sticky Controls Container */}
@@ -27,9 +30,16 @@ const App: React.FC = () => {
           {/* Main Photo Wrapper */}
           <div className="w-full bg-white p-2 rounded-2xl shadow-xl border-8 border-white overflow-hidden">
             <img 
-              src="IMG-20251214-WA0060~2.jpg" 
+              src={mainImageUrl} 
               alt="Emel & Onur" 
               className="w-full h-auto rounded-xl object-cover aspect-[4/3] md:aspect-video"
+              onError={(e) => {
+                // Fallback in case there is a typo in the repo filename (IMG vs MG)
+                const target = e.target as HTMLImageElement;
+                if (!target.src.includes('MG-')) {
+                   target.src = target.src.replace('IMG-', 'MG-');
+                }
+              }}
             />
           </div>
 
