@@ -22,7 +22,6 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -36,6 +35,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm' # Speeds up future runs
 
       - name: Install dependencies
         run: npm install
@@ -45,13 +45,20 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
+      - name: Encrypt with StatiCrypt
+        run: |
+          npx staticrypt dist/index.html ${{ secrets.SITE_PASSWORD }} \
+          --title "Emel & Onur's Wedding RSVP" \
+          --instructions "Please enter the password provided in your invitation." \
+          -o dist/index.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Vite's default output folder
+          path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
