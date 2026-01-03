@@ -1,207 +1,43 @@
+
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emel & Onur | Düğün RSVP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <title>Emel & Onur | Wedding RSVP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --gold-invitation: #BFAE90; /* Davetiyendeki altın tonu */
-            --mountain-blue: #A1B5C1;   /* Dağ mavisi */
-            --white: #ffffff;           /* Krem yerine saf beyaz */
-            --dark: #333333; 
-            --light-bg: #f8fafb;        /* Çok hafif bir gri-mavi (form arkaplanı için) */
+        body {
+            font-family: 'Lato', sans-serif;
         }
-        
-        body { margin: 0; padding: 0; background-color: var(--white); color: var(--dark); font-family: 'Lato', sans-serif; text-align: center; }
-        
-        h1, h2, .names { font-family: 'Playfair Display', serif; font-weight: 400; }
-        
-        header { 
-            padding: 100px 20px; 
-            background: linear-gradient(rgba(161, 181, 193, 0.15), rgba(161, 181, 193, 0.15)), url('https://images.unsplash.com/photo-1519225495806-7d5d754720f3?auto=format&fit=crop&w=1600&q=80'); 
-            background-size: cover; 
-            background-position: center; 
+        .font-serif {
+            font-family: 'Playfair Display', serif;
         }
-
-        .names { 
-            font-size: 3.5rem; 
-            margin-bottom: 10px; 
-            color: var(--gold-invitation); 
+        :root {
+            --gold-invitation: #BFAE90;
+            --mountain-blue: #A1B5C1;
         }
-        
-        .date { 
-            font-size: 1.2rem; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-            color: var(--gold-invitation); 
-        }
-
-        .main-photo { 
-            margin-top: -50px; 
-            padding: 0 20px;
-        }
-        .main-photo img { 
-            width: 100%; 
-            max-width: 700px; 
-            height: auto; 
-            border-radius: 15px; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            border: 8px solid white; 
-        }
-
-        section { padding: 80px 20px; max-width: 600px; margin: 0 auto; }
-        
-        h2 { color: var(--gold-invitation); font-size: 2.2rem; }
-
-        .rsvp-card { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 12px; 
-            border: 1px solid #eee; /* Hafif bir çerçeve ekledim */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
-            text-align: left; 
-        }
-        
-        .form-group { margin-bottom: 25px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--gold-invitation); }
-        
-        input[type="text"], select, textarea { 
-            width: 100%; 
-            padding: 12px; 
-            border: 1px solid #e0e0e0; 
-            border-radius: 4px; 
-            box-sizing: border-box; 
-            font-family: inherit; 
-            background-color: #fafafa;
-        }
-        
-        .radio-group { display: flex; gap: 20px; margin-top: 10px; }
-        
-        .plus-one-section { 
-            display: none; 
-            background: var(--light-bg); 
-            padding: 20px; 
-            border-radius: 6px; 
-            border-left: 4px solid var(--mountain-blue); 
-            margin-top: 10px; 
-        }
-        
-        button { 
-            background-color: var(--mountain-blue); 
-            color: white; 
-            padding: 18px; 
-            border: none; 
-            border-radius: 4px; 
-            cursor: pointer; 
-            width: 100%; 
-            font-size: 1.1rem; 
-            transition: 0.3s; 
-            margin-top: 20px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        button:hover { background-color: #8fa3af; box-shadow: 0 5px 15px rgba(161, 181, 193, 0.4); }
-        
-        footer { padding: 60px; font-style: italic; color: #aaa; border-top: 1px solid #f0f0f0; margin-top: 40px; }
+        .bg-gold { background-color: var(--gold-invitation); }
+        .text-gold { color: var(--gold-invitation); }
+        .bg-mountain { background-color: var(--mountain-blue); }
+        .text-mountain { color: var(--mountain-blue); }
+        .border-gold { border-color: var(--gold-invitation); }
+        .hover-mountain:hover { background-color: #8fa3af; }
     </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body>
-
-    <header>
-        <div class="names">Emel & Onur</div>
-        <div class="date">25 Temmuz 2026</div>
-    </header>
-
-    <div class="main-photo">
-        <img src="IMG-20251214-WA0060~2.jpg" alt="Emel & Onur">
-    </div>
-
-    <section id="merhaba">
-        <h2>Merhaba</h2>
-        <p>Düğün web sitemize hoş geldiniz! Bu mutlu günümüzde yanımızda olmanızdan büyük sevinç duyacağız. Katılım durumunuzu aşağıdaki formdan bize iletebilirsiniz.</p>
-    </section>
-
-    <section id="rsvp">
-        <div class="rsvp-card">
-            <h2 style="text-align: center;">LCV (RSVP)</h2>
-            <hr style="border: 0; border-top: 1px solid #eee; margin-bottom: 30px;">
-            
-            <form action="https://formspree.io/f/xdkqreya" method="POST">
-                
-                <div class="form-group">
-                    <label>Adınız</label>
-                    <input type="text" name="Ad" required placeholder="Adınızı giriniz">
-                </div>
-
-                <div class="form-group">
-                    <label>Soyadınız</label>
-                    <input type="text" name="Soyad" required placeholder="Soyadınızı giriniz">
-                </div>
-
-                <div class="form-group">
-                    <label>Katılım Durumunuz</label>
-                    <div class="radio-group">
-                        <label style="font-weight: normal; color: var(--dark);"><input type="radio" name="Katilim" value="Evet" required> Memnuniyetle Katılıyorum</label>
-                        <label style="font-weight: normal; color: var(--dark);"><input type="radio" name="Katilim" value="Hayir"> Maalesef Katılamıyorum</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Yemek Tercihiniz</label>
-                    <select name="Yemek Tercihi">
-                        <option value="Standart">Standart Menü</option>
-                        <option value="Vejetaryen">Vejetaryen</option>
-                        <option value="Vegan">Vegan</option>
-                    </select>
-                </div>
-
-                <hr style="border:0; border-top:1px solid #eee; margin: 30px 0;">
-
-                <div class="form-group">
-                    <label>Yanınızda misafir gelecek mi?</label>
-                    <div class="radio-group">
-                        <label style="font-weight: normal; color: var(--dark);"><input type="radio" name="Misafir Var mi" value="Evet" onclick="togglePlusOne(true)"> Evet</label>
-                        <label style="font-weight: normal; color: var(--dark);"><input type="radio" name="Misafir Var mi" value="Hayir" onclick="togglePlusOne(false)" checked> Hayır</label>
-                    </div>
-                </div>
-
-                <div id="plusOneSection" class="plus-one-section">
-                    <div class="form-group">
-                        <label>Misafir Adı ve Soyadı</label>
-                        <input type="text" name="Misafir Ismi" placeholder="Misafirinizin adını giriniz">
-                    </div>
-                    <div class="form-group">
-                        <label>Misafir Yemek Tercihi</label>
-                        <select name="Misafir Yemek Tercihi">
-                            <option value="Standart">Standart Menü</option>
-                            <option value="Vejetaryen">Vejetaryen</option>
-                            <option value="Vegan">Vegan</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Ek Notlar veya Alerjiler</label>
-                    <textarea name="Mesaj" rows="3" placeholder="Bilmemiz gereken başka bir detay var mı?"></textarea>
-                </div>
-
-                <button type="submit">Cevabı Gönder</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        Sevgilerle, Emel & Onur
-    </footer>
-
-    <script>
-        function togglePlusOne(show) {
-            const section = document.getElementById('plusOneSection');
-            section.style.display = show ? 'block' : 'none';
-        }
-    </script>
-
+<body class="bg-white text-slate-800 antialiased">
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>
