@@ -41,25 +41,24 @@ jobs:
 
       - name: Encrypt site with Staticrypt
         run: |
-          # 1. Move into the dist folder so we are working directly on the file
           cd dist
+          # 1. We run with the most explicit flags possible
+          # We output to 'encrypted.html' specifically
+          npx staticrypt index.html --password "${{ secrets.SITE_PASSWORD }}" --short --output . --name "encrypted"
           
-          # 2. Run staticrypt directly on index.html with the replace flag
-          # We use --overwrite to force it to replace the file in place
-          npx staticrypt index.html -p "${{ secrets.SITE_PASSWORD }}" -s -r --overwrite
-          
-          # 3. If that created an 'encrypted' folder instead of replacing, move it back
-          if [ -f "encrypted/index.html" ]; then
-            mv encrypted/index.html index.html
+          # 2. Check if the new file exists. If not, try the 'stdout' pipe again but with a FIX
+          if [ -f "encrypted.html" ]; then
+            mv encrypted.html index.html
+            echo "Success: Created encrypted.html and replaced index.html"
+          else
+            echo "Standard method failed, trying the pipe method..."
+            npx staticrypt index.html --password "${{ secrets.SITE_PASSWORD }}" --short --stdout > encrypted_pipe.html
+            mv encrypted_pipe.html index.html
           fi
-          
-          # 4. BIG REVEAL: List everything in dist so we can see what happened
-          echo "--- Current folder content ---"
-          ls -R
-          
-          # 5. Check if the file is actually encrypted now
-          echo "--- First 50 characters of index.html ---"
-          head -c 50 index.html
+
+          # 3. VERIFICATION
+          echo "--- VERIFYING FILE CONTENT ---"
+          head -c 100 index.html
 
     
             
