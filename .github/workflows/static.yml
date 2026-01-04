@@ -39,18 +39,12 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      # 👉 ADDED: install staticrypt
-      - name: Install Staticrypt
-        run: npm install -g staticrypt
-
-      # 👉 ADDED: encrypt index.html
       - name: Encrypt site with Staticrypt
         run: |
-          npx staticrypt dist/index.html \
-            -p "${{ secrets.SITE_PASSWORD }}" \
-            --overwrite \
-            -o dist/index.html
-
+          npx staticrypt dist/index.html "${{ secrets.SITE_PASSWORD }}" \
+            --title "Protected Site" \
+            --template-instructions "Enter the site password"
+            
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
