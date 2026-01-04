@@ -41,11 +41,12 @@ jobs:
 
       - name: Encrypt site with Staticrypt
         run: |
-          # We encrypt index.html and explicitly output it to a new file called encrypted.html
-          npx staticrypt dist/index.html -p "${{ secrets.SITE_PASSWORD }}" -s -o dist/encrypted.html --title "Protected Site"
+          # 1. Run encryption (this creates dist/encrypted/index.html)
+          npx staticrypt dist/index.html -p "${{ secrets.SITE_PASSWORD }}" -s --title "Protected Site"
           
-          # We then delete the original and rename the encrypted one to index.html
-          mv dist/encrypted.html dist/index.html
+          # 2. Move the encrypted file to replace the original one
+          # Based on docs, it places it in [directory_of_file]/encrypted/
+          mv dist/encrypted/index.html dist/index.html
             
       - name: Setup Pages
         uses: actions/configure-pages@v4
