@@ -95,6 +95,17 @@ const App: React.FC = () => {
                 </div>
               </div>
 
+              {/* Closing */}
+              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-[#BFAE90] text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                  <span className="text-xs font-bold">23:30</span>
+                </div>
+                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-100 bg-white shadow-sm text-left">
+                  <h3 className="font-bold text-gray-800">{t.closingTitle}</h3>
+                  <p className="text-sm text-gray-500">Kulturhaus Villa Sträuli</p>
+                </div>
+              </div>
+
             </div>
           </section>
 
