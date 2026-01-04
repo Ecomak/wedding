@@ -5,7 +5,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     title: 'Emel & Onur',
     date: '25 TEMMUZ 2026',
     welcomeTitle: 'Merhaba',
-    welcomeText: 'Düğün web sitemize hoş geldiniz! İsviçre\'deki bu mutlu günümüzde yanımızda olmanızdan büyük sevinç duyacağız. Katılım durumunuzu aşağıdaki formdan bize iletebilirsiniz.',
+    welcomeText: 'Düğün web sitemize hoş geldiniz! Bu mutlu günümüzde yanımızda olmanızdan büyük sevinç duyacağız. Katılım durumunuzu aşağıdaki formdan bize iletebilirsiniz.',
     rsvpTitle: 'LCV (RSVP)',
     locationTitle: 'Konumlar',
     venueZurichTitle: 'Nikah: Zürich Stadthaus',
@@ -57,7 +57,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     arrivalTitle: 'Varış',
     arrivalText: 'Nikah 14:00\'de başlayacaktır. Tören için en geç 13:30\'da Stadthaus\'ta olmanızı öneririz.',
     ceremonyTitle: 'Nikah Töreni',
-    celebrationTitle: 'Kutlama Daveti',
+    celebrationTitle: 'Kutlama',
     transportTitle: 'Ulaşım Önerisi',
     transportText: 'Zürich Stadthaus\'tan Villa Sträuli\'ye ulaşım için toplu taşıma en pratik seçenektir. Stadthaus\'tan kısa bir yürüyüşle Stadelhofen istasyonuna geçip oradan Winterthur\'a giden trenlere binebilirsiniz. Ayrıca Zürich HB\'den (Ana İstasyon) de trenle yaklaşık 20-30 dakikada Winterthur\'a ulaşabilirsiniz. İstasyondan villaya 10 dakikalık keyifli bir yürüyüşle veya kısa bir otobüs yolculuğu ile ulaşım mümkündür.'
   },
@@ -117,7 +117,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     arrivalTitle: 'Arrival',
     arrivalText: 'The ceremony starts at 14:00. We suggest arriving at the Stadthaus by 13:30 to find your seats.',
     ceremonyTitle: 'Wedding Ceremony',
-    celebrationTitle: 'Celebration Party',
+    celebrationTitle: 'Celebration',
     transportTitle: 'Transportation Advice',
     transportText: 'Public transport is the best way to travel from Zurich Stadthaus to Villa Sträuli. You can take a short walk from the Stadthaus to Stadelhofen station and catch a train to Winterthur from there. Alternatively, trains from Zurich HB to Winterthur HB take about 20-30 minutes. From Winterthur station, the Villa is a short 10-minute walk or a quick bus ride away.'
   }
