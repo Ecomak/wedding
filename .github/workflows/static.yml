@@ -41,7 +41,10 @@ jobs:
 
       - name: Encrypt site with Staticrypt
         run: |
+          # -r replaces the original index.html so GitHub Pages loads the encrypted one
+          # We point it to the dist folder where Vite finished the build
           npx staticrypt dist/index.html "${{ secrets.SITE_PASSWORD }}" \
+            -r \
             --title "Protected Site" \
             --template-instructions "Enter the site password"
             
