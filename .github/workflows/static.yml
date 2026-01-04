@@ -41,24 +41,21 @@ jobs:
 
       - name: Encrypt site with Staticrypt
         run: |
-          cd dist
-          # 1. We run with the most explicit flags possible
-          # We output to 'encrypted.html' specifically
-          npx staticrypt index.html --password "${{ secrets.SITE_PASSWORD }}" --short --output . --name "encrypted"
+          # 1. Use the locally installed package in node_modules
+          # We use the STATICRYPT_PASSWORD env var which the tool looks for automatically
+          ./node_modules/.bin/staticrypt dist/index.html -r -s --title "Protected Site"
           
-          # 2. Check if the new file exists. If not, try the 'stdout' pipe again but with a FIX
-          if [ -f "encrypted.html" ]; then
-            mv encrypted.html index.html
-            echo "Success: Created encrypted.html and replaced index.html"
-          else
-            echo "Standard method failed, trying the pipe method..."
-            npx staticrypt index.html --password "${{ secrets.SITE_PASSWORD }}" --short --stdout > encrypted_pipe.html
-            mv encrypted_pipe.html index.html
+          # 2. Check if it created the 'encrypted' folder (common v3.x behavior)
+          if [ -d "dist/encrypted" ]; then
+            echo "Found encrypted folder, moving file..."
+            mv dist/encrypted/index.html dist/index.html
           fi
 
-          # 3. VERIFICATION
-          echo "--- VERIFYING FILE CONTENT ---"
-          head -c 100 index.html
+          # 3. VERIFICATION: Look for the word 'password' or 'crypto' in the file
+          echo "--- FILE CHECK ---"
+          grep -i "password" dist/index.html | head -c 100
+        env:
+          STATICRYPT_PASSWORD: ${{ secrets.SITE_PASSWORD }}
 
     
             
