@@ -41,12 +41,24 @@ jobs:
 
       - name: Encrypt site with Staticrypt
         run: |
-          # 1. Run encryption (this creates dist/encrypted/index.html)
+          # 1. Run the encryption
           npx staticrypt dist/index.html -p "${{ secrets.SITE_PASSWORD }}" -s --title "Protected Site"
           
-          # 2. Move the encrypted file to replace the original one
-          # Based on docs, it places it in [directory_of_file]/encrypted/
-          mv dist/encrypted/index.html dist/index.html
+          # 2. DEBUG: List all files to see where it went (this helps if it fails again)
+          echo "Searching for the encrypted file..."
+          find . -name "index.html"
+          
+          # 3. Use the find command to move the encrypted file to dist/index.html
+          # We search for index.html but exclude the one already in dist/ and any in node_modules
+          ENCRYPTED_FILE=$(find . -path "*/encrypted/index.html" | head -n 1)
+          
+          if [ -z "$ENCRYPTED_FILE" ]; then
+            echo "Error: Could not find the encrypted file!"
+            exit 1
+          else
+            echo "Found encrypted file at: $ENCRYPTED_FILE"
+            mv "$ENCRYPTED_FILE" dist/index.html
+          fi
             
       - name: Setup Pages
         uses: actions/configure-pages@v4
