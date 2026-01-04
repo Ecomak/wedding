@@ -41,23 +41,17 @@ jobs:
 
       - name: Encrypt site with Staticrypt
         run: |
-          # 1. Run the encryption
-          npx staticrypt dist/index.html -p "${{ secrets.SITE_PASSWORD }}" -s --title "Protected Site"
+          # --stdout tells staticrypt to output the encrypted HTML code instead of saving a file
+          # > dist/index.html tells the shell to take that output and overwrite your file
+          npx staticrypt dist/index.html -p "${{ secrets.SITE_PASSWORD }}" -s --stdout > dist/index.html
           
-          # 2. DEBUG: List all files to see where it went (this helps if it fails again)
-          echo "Searching for the encrypted file..."
-          find . -name "index.html"
-          
-          # 3. Use the find command to move the encrypted file to dist/index.html
-          # We search for index.html but exclude the one already in dist/ and any in node_modules
-          ENCRYPTED_FILE=$(find . -path "*/encrypted/index.html" | head -n 1)
-          
-          if [ -z "$ENCRYPTED_FILE" ]; then
-            echo "Error: Could not find the encrypted file!"
-            exit 1
+          # Verification: Check if the file now contains the encryption engine
+          echo "--- VERIFYING ENCRYPTION ---"
+          if grep -q "staticrypt" dist/index.html; then
+            echo "Success: dist/index.html is now encrypted."
           else
-            echo "Found encrypted file at: $ENCRYPTED_FILE"
-            mv "$ENCRYPTED_FILE" dist/index.html
+            echo "Error: dist/index.html does not contain encrypted data."
+            exit 1
           fi
             
       - name: Setup Pages
