@@ -41,18 +41,23 @@ jobs:
 
       - name: Encrypt site with Staticrypt
         run: |
-          # --stdout tells staticrypt to output the encrypted HTML code instead of saving a file
-          # > dist/index.html tells the shell to take that output and overwrite your file
-          npx staticrypt dist/index.html -p "${{ secrets.SITE_PASSWORD }}" -s --stdout > dist/index.html
+          # 1. Encrypt to a temporary file instead of directly overwriting
+          npx staticrypt dist/index.html --password "${{ secrets.SITE_PASSWORD }}" -s --stdout > dist/temp_encrypted.html
           
-          # Verification: Check if the file now contains the encryption engine
-          echo "--- VERIFYING ENCRYPTION ---"
-          if grep -q "staticrypt" dist/index.html; then
-            echo "Success: dist/index.html is now encrypted."
+          # 2. Check if the temp file actually has content
+          if [ -s dist/temp_encrypted.html ]; then
+            echo "Encryption successful, replacing original index.html"
+            mv dist/temp_encrypted.html dist/index.html
           else
-            echo "Error: dist/index.html does not contain encrypted data."
+            echo "Error: Encrypted output is empty!"
             exit 1
           fi
+          
+          # 3. Final Verification
+          echo "--- VERIFYING FILE CONTENT ---"
+          head -n 20 dist/index.html
+
+    
             
       - name: Setup Pages
         uses: actions/configure-pages@v4
