@@ -40,7 +40,12 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Encrypt site with Staticrypt
-        run: npx staticrypt dist/index.html -p "${{ secrets.SITE_PASSWORD }}" -s -r --title "Protected Site" --template-instructions "Enter the site password"
+        run: |
+          # We encrypt index.html and explicitly output it to a new file called encrypted.html
+          npx staticrypt dist/index.html -p "${{ secrets.SITE_PASSWORD }}" -s -o dist/encrypted.html --title "Protected Site"
+          
+          # We then delete the original and rename the encrypted one to index.html
+          mv dist/encrypted.html dist/index.html
             
       - name: Setup Pages
         uses: actions/configure-pages@v4
