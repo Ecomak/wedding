@@ -41,21 +41,27 @@ jobs:
 
       - name: Encrypt site with Staticrypt
         run: |
-          # 1. Encrypt to a temporary file instead of directly overwriting
-          npx staticrypt dist/index.html --password "${{ secrets.SITE_PASSWORD }}" -s --stdout > dist/temp_encrypted.html
+          # 1. We use -f to force the output filename. 
+          # We'll output to a different name first to be safe.
+          npx staticrypt dist/index.html -p "${{ secrets.SITE_PASSWORD }}" -s -f "encrypted.html"
           
-          # 2. Check if the temp file actually has content
-          if [ -s dist/temp_encrypted.html ]; then
-            echo "Encryption successful, replacing original index.html"
-            mv dist/temp_encrypted.html dist/index.html
+          # 2. Find where it put it and move it to dist/index.html
+          # StatiCrypt usually puts the -f file in the same directory as the input
+          if [ -f "dist/encrypted.html" ]; then
+            mv dist/encrypted.html dist/index.html
+            echo "Success: Moved from dist/encrypted.html"
+          elif [ -f "encrypted.html" ]; then
+            mv encrypted.html dist/index.html
+            echo "Success: Moved from root encrypted.html"
           else
-            echo "Error: Encrypted output is empty!"
+            echo "Error: encrypted.html not found anywhere!"
             exit 1
           fi
-          
-          # 3. Final Verification
-          echo "--- VERIFYING FILE CONTENT ---"
-          head -n 20 dist/index.html
+
+          # 3. Double check the file is actually HTML now
+          echo "--- START OF FILE ---"
+          head -c 100 dist/index.html
+          echo -e "\n--- END ---"
 
     
             
