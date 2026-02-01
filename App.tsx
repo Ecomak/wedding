@@ -84,16 +84,6 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              {/* Celebration */}
-              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-[#A1B5C1] text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                  <span className="text-xs font-bold">16:00</span>
-                </div>
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-100 bg-white shadow-sm text-left">
-                  <h3 className="font-bold text-gray-800">{t.celebrationTitle}</h3>
-                  <p className="text-sm text-gray-500">Kulturhaus Villa Sträuli</p>
-                </div>
-              </div>
 
               {/* Closing */}
               <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
@@ -120,24 +110,6 @@ const App: React.FC = () => {
             <h2 className="text-3xl text-gold playfair mb-8">{t.locationTitle}</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              {/* Zurich Venue */}
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between text-left">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{t.venueZurichTitle}</h3>
-                  <p className="text-gray-500 mb-6 text-sm">{t.venueZurichAddress}</p>
-                </div>
-                <a 
-                  href="https://www.google.com/maps/search/?api=1&query=Stadthausquai+17+8001+Zürich" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 text-sm font-bold text-[#A1B5C1] hover:text-[#8fa3af] transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                  </svg>
-                  {t.viewOnMaps}
-                </a>
-              </div>
 
               {/* Winterthur Venue */}
               <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between text-left">
