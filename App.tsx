@@ -98,8 +98,6 @@ const App: React.FC = () => {
 
             </div>
           </section>
-
-          TypeScript
 {/* Location Section */}
 <section id="location" className="text-center scroll-mt-24">
   <div className="inline-block p-4 mb-4 rounded-full bg-blue-50 text-[#A1B5C1]">
