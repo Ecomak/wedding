@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+<import React, { useState } from 'react';
 import { TRANSLATIONS } from './constants';
 import { Language } from './types';
 import LanguageToggle from './LanguageToggle';
@@ -51,53 +51,6 @@ const App: React.FC = () => {
             </p>
           </section>
 
-          {/* Schedule Section */}
-          <section id="schedule" className="text-center scroll-mt-24">
-             <div className="inline-block p-4 mb-4 rounded-full bg-gold-light/10 text-gold">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h2 className="text-3xl text-gold playfair mb-10">{t.scheduleTitle}</h2>
-            
-            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
-              
-              {/* Arrival */}
-              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-[#A1B5C1] text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                  <span className="text-xs font-bold">13:30</span>
-                </div>
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-100 bg-white shadow-sm text-left">
-                  <h3 className="font-bold text-gray-800">{t.arrivalTitle}</h3>
-                  <p className="text-sm text-gray-500">{t.arrivalText}</p>
-                </div>
-              </div>
-
-              {/* Celebration */}
-              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-[#A1B5C1] text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                  <span className="text-xs font-bold">16:00</span>
-                </div>
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-100 bg-white shadow-sm text-left">
-                  <h3 className="font-bold text-gray-800">{t.celebrationTitle}</h3>
-                  <p className="text-sm text-gray-500">Kulturhaus Villa Sträuli</p>
-                </div>
-              </div>
-
-
-              {/* Closing */}
-              <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-[#BFAE90] text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                  <span className="text-xs font-bold">23:30</span>
-                </div>
-                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-100 bg-white shadow-sm text-left">
-                  <h3 className="font-bold text-gray-800">{t.closingTitle}</h3>
-                  <p className="text-sm text-gray-500">Kulturhaus Villa Sträuli</p>
-                </div>
-              </div>
-
-            </div>
-          </section>
 {/* Location Section */}
 <section id="location" className="text-center scroll-mt-24">
   <div className="inline-block p-4 mb-4 rounded-full bg-blue-50 text-[#A1B5C1]">
