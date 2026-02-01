@@ -52,7 +52,7 @@ const App: React.FC = () => {
           </section>
 
           {/* Schedule Section */}
-          <section id="schedule" className="hidden text-center scroll-mt-24">
+          <section id="schedule" className="text-center scroll-mt-24">
              <div className="inline-block p-4 mb-4 rounded-full bg-gold-light/10 text-gold">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
