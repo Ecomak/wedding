@@ -99,43 +99,37 @@ const App: React.FC = () => {
             </div>
           </section>
 
-         {/* Location Section */}
-<section 
-  id="location" 
-  className="text-center scroll-mt-24 flex flex-col justify-center items-center min-h-[60vh] py-16 md:py-24"  // ← added these
->
-  <div className="inline-block p-4 mb-4 rounded-full bg-blue-50 text-[#A1B5C1]">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-    </svg>
-  </div>
-  
-  <h2 className="text-3xl text-gold playfair mb-8">{t.locationTitle}</h2>
-  
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 w-full max-w-5xl">  {/* ← optional: limit width */}
-    {/* Winterthur Venue */}
-    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between text-left mx-auto w-full max-w-md">
-      <div>
-        <h3 className="text-xl font-bold text-gray-800 mb-2">{t.venueWinterthurTitle}</h3>
-        <p className="text-gray-500 mb-6 text-sm">{t.venueWinterthurAddress}</p>
-      </div>
-      <a
-        href="https://www.google.com/maps/place/Kulturhaus+Villa+Sträuli/@47.5016989,8.7239641,17z/data=!3m2!4b1!5s0x479a9982bd34f091:0xe2299d477b01c8e5!4m6!3m5!1s0x479a99b207b31019:0x1cb2b27b6d5a610e!8m2!3d47.501699!4d8.728835!16s%2Fg%2F1tgnl0xk?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 text-sm font-bold text-[#A1B5C1] hover:text-[#8fa3af] transition-colors"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-        </svg>
-        {t.viewOnMaps}
-      </a>
-    </div>
+          {/* Location Section */}
+          <section id="location" className="text-center scroll-mt-24">
+            <div className="inline-block p-4 mb-4 rounded-full bg-blue-50 text-[#A1B5C1]">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+            </div>
+            <h2 className="text-3xl text-gold playfair mb-8">{t.locationTitle}</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
 
-    {/* Add second venue card here later if needed */}
-  </div>
-</section>
+              {/* Winterthur Venue */}
+              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between text-left mx-auto w-full max-w-md">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">{t.venueWinterthurTitle}</h3>
+                  <p className="text-gray-500 mb-6 text-sm">{t.venueWinterthurAddress}</p>
+                </div>
+                <a 
+                  href="https://www.google.com/maps/place/Kulturhaus+Villa+Sträuli/@47.5016989,8.7239641,17z/data=!3m2!4b1!5s0x479a9982bd34f091:0xe2299d477b01c8e5!4m6!3m5!1s0x479a99b207b31019:0x1cb2b27b6d5a610e!8m2!3d47.501699!4d8.728835!16s%2Fg%2F1tgnl0xk?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 text-sm font-bold text-[#A1B5C1] hover:text-[#8fa3af] transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                  </svg>
+                  {t.viewOnMaps}
+                </a>
+              </div>
+            </div>
 
             {/* Transport Advice Section */}
             <div className="p-8 bg-blue-50/30 rounded-3xl border border-blue-100 text-left">
