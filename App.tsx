@@ -49,23 +49,46 @@ const App: React.FC = () => {
             </p>
           </section>
 
-          {/* Location Section */}
-          <section id="location" className="text-center scroll-mt-24">
-            <div className="inline-block p-4 mb-4 rounded-full bg-blue-50 text-[#A1B5C1]">
+          {/* Schedule Section - HIDDEN */}
+          <section 
+            id="schedule" 
+            className="text-center scroll-mt-24 hidden" // <-- hidden now
+          >
+            <div className="inline-block p-4 mb-4 rounded-full bg-gold-light/10 text-gold">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h2 className="text-3xl text-gold playfair mb-8">{t.locationTitle}</h2>
+            <h2 className="text-3xl text-gold playfair mb-10">{t.scheduleTitle}</h2>
             
-            <div className="flex justify-center mb-12 px-4">
-              <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between text-left w-full max-w-md">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{t.venueWinterthurTitle}</h3>
-                  <p className="text-gray-500 mb-6 text-sm">{t.venueWinterthurAddress}</p>
-                </div>
-                <a 
-                  href="https://maps.google.com/?q=Kulturhaus+Villa+Sträuli+Winterthur" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-200 before:to-transparent">
+              {/* Arrival, Celebration, Closing items here */}
+            </div>
+          </section>
+
+          {/* Location Section */}
+          <section id="location" className="text-center scroll-mt-24">
+            {/* ...existing Location content... */}
+          </section>
+
+          {/* Attractions Section */}
+          <section id="attractions" className="text-center scroll-mt-24">
+            {/* ...existing Attractions content... */}
+          </section>
+
+          {/* RSVP Card */}
+          <section id="rsvp" className="w-full scroll-mt-24">
+            <RsvpForm t={t} />
+          </section>
+
+        </div>
+      </main>
+
+      <footer className="w-full py-12 border-t border-gray-100 text-center text-gray-400 italic">
+        {t.footerText}
+      </footer>
+    </div>
+  );
+};
+
+export default App;
