@@ -73,14 +73,14 @@ const App: React.FC = () => {
                 </div>
               </div>
 
-              {/* Ceremony */}
+              {/* Celebration */}
               <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-[#BFAE90] text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                  <span className="text-xs font-bold">14:00</span>
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-[#A1B5C1] text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                  <span className="text-xs font-bold">16:00</span>
                 </div>
                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-100 bg-white shadow-sm text-left">
-                  <h3 className="font-bold text-gray-800">{t.ceremonyTitle}</h3>
-                  <p className="text-sm text-gray-500">Zürich Stadthaus</p>
+                  <h3 className="font-bold text-gray-800">{t.celebrationTitle}</h3>
+                  <p className="text-sm text-gray-500">Kulturhaus Villa Sträuli</p>
                 </div>
               </div>
 
@@ -112,7 +112,7 @@ const App: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
 
               {/* Winterthur Venue */}
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between text-left">
+              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between text-left mx-auto w-full max-w-md">
                 <div>
                   <h3 className="text-xl font-bold text-gray-800 mb-2">{t.venueWinterthurTitle}</h3>
                   <p className="text-gray-500 mb-6 text-sm">{t.venueWinterthurAddress}</p>
