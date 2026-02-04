@@ -7,7 +7,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     welcomeTitle: 'Merhaba',
     welcomeText: 'Düğün web sitemize hoş geldiniz! Hayatımızın bu özel gününde mutluluğumuzu sizlerle paylaşacak olmanin heyecani içindeyiz. Katılım durumunuzu aşağıdaki formdan bize iletmeyi unutmayin!',
     rsvpTitle: 'LCV (RSVP)',
-    locationTitle: 'Konumlar',
+    locationTitle: 'Konum',
     venueZurichTitle: 'Nikah: Zürich Stadthaus',
     venueZurichAddress: 'Stadthausquai 17, 8001 Zürich',
     venueWinterthurTitle: 'Kutlama: Kulturhaus Villa Sträuli',
@@ -54,7 +54,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     menuAttractions: 'Gezilecek Yerler',
     menuRsvp: 'LCV',
     transportTitle: 'Ulaşım Önerisi',
-    transportText: 'Zürich Stadthaus\'tan Villa Sträuli\'ye ulaşım için toplu taşıma en pratik seçenektir. Stadthaus\'tan kısa bir yürüyüşle Stadelhofen istasyonuna geçip oradan Winterthur\'a giden trenlere binebilirsiniz. Ayrıca Zürich HB\'den (Ana İstasyon) de trenle yaklaşık 20-30 dakikada Winterthur\'a ulaşabilirsiniz. İstasyondan villaya 10 dakikalık keyifli bir yürüyüşle veya kısa bir otobüs yolculuğu ile ulaşım mümkündür.'
+    transportText: 'Villa Sträuli’ye ulaşım için toplu taşıma en pratik seçenektir. Zürich şehir merkezinden (Zürich HB veya Stadelhofen) Winterthur’a giden trenlere binebilirsiniz. Ayrıca Zürich Havalimanı’ndan (Zürich Flughafen) direkt trenlerle yaklaşık 20-30 dakika içinde Winterthur’a ulaşmak mümkündür. Winterthur tren istasyonundan Villa Sträuli’ye ulaşmak için Bahnhof Oberwinterthur yönüne giden 10 numaralı otobüse binebilir ve “Bezirksgebäude” durağında inebilirsiniz ya da yaklaşık 10 dakikalık keyifli bir yürüyüş yapabilirsiniz.'
   },
   EN: {
     title: 'Emel & Onur',
@@ -62,7 +62,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     welcomeTitle: 'Welcome',
     welcomeText: 'Welcome to our wedding website! We are thrilled to share our joy with you on this special day of our lives. Don\'t forget to let us know your attendance status using the form below!',
     rsvpTitle: 'RSVP',
-    locationTitle: 'Locations',
+    locationTitle: 'Location',
     venueZurichTitle: 'Ceremony: Zurich Stadthaus',
     venueZurichAddress: 'Stadthausquai 17, 8001 Zürich',
     venueWinterthurTitle: 'Celebration: Kulturhaus Villa Sträuli',
@@ -109,6 +109,6 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     menuAttractions: 'Attractions',
     menuRsvp: 'RSVP',
     transportTitle: 'Transportation Advice',
-    transportText: 'Public transport is the best way to travel from Zurich Stadthaus to Villa Sträuli. You can take a short walk from the Stadthaus to Stadelhofen station and catch a train to Winterthur from there. Alternatively, trains from Zurich HB to Winterthur HB take about 20-30 minutes. From Winterthur station, the Villa is a short 10-minute walk or a quick bus ride away.'
+    transportText: 'Public transportation is the most convenient way to reach Villa Sträuli. From Zurich city center (Zurich HB or Stadelhofen), you can take trains to Winterthur. There are also direct trains from Zurich Airport (Zurich Flughafen), and the journey to Winterthur takes about 20–30 minutes. From Winterthur train station, you can take bus line 10 in the direction of Bahnhof Oberwinterthur and get off at the “Bezirksgebäude” stop, or enjoy a pleasant walk of about 10 minutes.'
   }
 };
